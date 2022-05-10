@@ -6,7 +6,7 @@
 /*   By: aalhamel <aalhamel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 19:35:47 by aalhamel          #+#    #+#             */
-/*   Updated: 2022/05/10 19:45:58 by aalhamel         ###   ########.fr       */
+/*   Updated: 2022/05/10 20:01:28 by aalhamel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@ typedef struct s_Node
 	int				data;
 	struct s_Node	*next;
 }	t_node;
+
+void	ft_swap(int *a, int *b)
+{
+	int	temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
 
 //this function is used to check the element is an alphapbet and 
 // also checks if the the elment is greater than int max and int min
@@ -123,6 +132,7 @@ int main(int argc, char **argv)
 			insertAtEnd(&head, ab);
 		i++;
 	}
+	ft_swap(&(head)->data ,&(head)->next->data);
 	printf("Linked list:\n");
 	printLinkedList(head);
 	return (0);
