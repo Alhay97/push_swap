@@ -1,14 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   linkedFunction.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aalhamel <aalhamel@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/10 19:35:47 by aalhamel          #+#    #+#             */
+/*   Updated: 2022/05/10 19:45:58 by aalhamel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
 
-struct Node
+typedef struct s_Node
 {
-	int	data;  //value
-	struct Node	*next; //adress of the next node
-};
+	int				data;
+	struct s_Node	*next;
+}	t_node;
 
-
+//this function is used to check the element is an alphapbet and 
+// also checks if the the elment is greater than int max and int min
 void	check_sum(unsigned long sum, int sign, const char *str)
 {
 	if (sum > 2147483647 && sign == 1)
@@ -28,6 +41,7 @@ void	check_sum(unsigned long sum, int sign, const char *str)
 	}
 }
 
+//atoi is used to convert the strin to an int
 int	ft_atoi(const char *str)
 {
 	unsigned long	sum;
@@ -50,7 +64,7 @@ int	ft_atoi(const char *str)
 	return (sum * sign);
 }
 
-void	printLinkedList(struct Node *p)
+void	printLinkedList(t_node *p)
 {
 	while (p != NULL)
 	{
@@ -58,64 +72,48 @@ void	printLinkedList(struct Node *p)
 		p = p->next;
 	}
 }
+
 // this function is used to add a elment in the beginning of a linked list
-void insertAtBeginning(struct Node** header, int newValue)
+void	insertAtBeginning(t_node **header, int newValue)
 {
-	struct Node* alhai = (struct Node*) malloc(sizeof(struct Node));
+	t_node	*alhai;
+
+	alhai = (t_node *) malloc(sizeof(t_node));
 	alhai -> data = newValue;
 	alhai -> next = *header;
 	*header = alhai;
 }
 
-void insertAtEnd(struct Node** head, int newData)
+//this function is to add an elment at the end
+// of the linked list
+
+void	insertAtEnd(t_node **head, int newData)
 {
-	struct Node *alhai = (struct Node*) malloc(sizeof(struct Node));
+	t_node	*alhai;
+	t_node	*tempo;
+
+	alhai = (t_node *) malloc(sizeof(t_node));
 	alhai -> data = newData;
 	alhai -> next = NULL;
-
 	if (*head == NULL)
 	{
 		*head = alhai;
-		return;
+		return ;
 	}
-
-	struct Node *tempo = *head;
-	while(tempo -> next != NULL)
+	tempo = *head;
+	while (tempo -> next != NULL)
 		tempo = tempo -> next;
 	tempo -> next = alhai;
-
 }
-
-// void deleteFirst(struct Node** header)
-// {
-// 	*header = header -> next;	
-// }
-
-
-// int main() {
-	// struct Node* head = NULL;
-	// insertAtEnd(&head, 1);
-	// insertAtBeginning(&head, 2);
-	// insertAtEnd(&head, 6);
-	// insertAtEnd(&head, 8);
-	// insertAtEnd(&head, 9);
-	// insertAtBeginning(&head, 3);
-	// insertAtEnd(&head, 4);
- //  // insertAfter(head->next, 5);
-
- //  printf("Linked list:\n");
- //  printLinkedList(head);
-// }
-
-
-// 
 
 int main(int argc, char **argv)
 {
-	int i;
-	int ab;
+	int			i;
+	int			ab;
+	t_node		*head;
+
 	i = 1;
-	struct Node* head = NULL;
+	head = NULL;
 	while (i < argc)
 	{
 		ab = ft_atoi(argv[i]);
@@ -123,10 +121,9 @@ int main(int argc, char **argv)
 			insertAtBeginning(&head, ab);
 		else
 			insertAtEnd(&head, ab);
-		//printf("%d\n", ab);
-		i++; 
+		i++;
 	}
 	printf("Linked list:\n");
 	printLinkedList(head);
-	return 0;
+	return (0);
 }
