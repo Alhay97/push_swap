@@ -1,25 +1,63 @@
 #include <stdlib.h>
 #include <stdio.h>
-
+#include <unistd.h>
 
 struct Node
 {
-	int data;  //value
-	struct Node *next; //adress of the next node
+	int	data;  //value
+	struct Node	*next; //adress of the next node
 };
 
-void printLinkedList(struct Node *p)
+
+void	check_sum(unsigned long sum, int sign, const char *str)
 {
-	while(p != NULL)
+	if (sum > 2147483647 && sign == 1)
+	{
+		write(2, "Error1 \n", 6);
+		exit (1);
+	}
+	else if (sum > 2147483648 && sign == -1)
+	{
+		write(2, "Error2 \n", 6);
+		exit (1);
+	}
+	else if (*str)
+	{
+		write (2, "ERROR3 \n", 6);
+		exit (1);
+	}
+}
+
+int	ft_atoi(const char *str)
+{
+	unsigned long	sum;
+	int				sign;
+
+	sum = 0;
+	sign = 1;
+	while ((*str == 32) || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
+		sign *= -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+	{
+		sum = sum * 10 + *str - '0';
+		str++;
+	}
+	check_sum (sum, sign, str);
+	return (sum * sign);
+}
+
+void	printLinkedList(struct Node *p)
+{
+	while (p != NULL)
 	{
 		printf("%d \n", p->data);
 		p = p->next;
 	}
 }
-
-
-
-
 // this function is used to add a elment in the beginning of a linked list
 void insertAtBeginning(struct Node** header, int newValue)
 {
@@ -75,11 +113,20 @@ void insertAtEnd(struct Node** head, int newData)
 int main(int argc, char **argv)
 {
 	int i;
-	i = 0;
+	int ab;
+	i = 1;
+	struct Node* head = NULL;
 	while (i < argc)
 	{
-		printf("%s\n", argv[i]);
+		ab = ft_atoi(argv[i]);
+		if (argc == 1)
+			insertAtBeginning(&head, ab);
+		else
+			insertAtEnd(&head, ab);
+		//printf("%d\n", ab);
 		i++; 
 	}
+	printf("Linked list:\n");
+	printLinkedList(head);
 	return 0;
 }
