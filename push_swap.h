@@ -6,7 +6,7 @@
 /*   By: aalhamel <aalhamel>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 21:14:50 by aalhamel          #+#    #+#             */
-/*   Updated: 2022/05/10 21:23:28 by aalhamel         ###   ########.fr       */
+/*   Updated: 2022/05/10 22:31:12 by aalhamel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ typedef struct s_Node
 	int				data;
 	struct s_Node	*next;
 }	t_node;
+
+
+
+int strcmp(const char *s1, const char *s2);
+
+void	ft_check_dups(int ac, char **av);
 
 
 void	ft_swap(int *a, int *b);

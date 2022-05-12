@@ -6,11 +6,47 @@
 /*   By: aalhamel <aalhamel>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 21:25:58 by aalhamel          #+#    #+#             */
-/*   Updated: 2022/05/10 21:28:04 by aalhamel         ###   ########.fr       */
+/*   Updated: 2022/05/12 15:32:43 by aalhamel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int countNode(t_node *head)
+{
+    int count = 0;
+
+    while (head->next != NULL) {
+
+        // Starting from the next node
+        t_node  *ptr = head->next;
+        while (ptr != NULL) {
+
+            // If some duplicate node is found
+            if (head->data == ptr->data) {
+                count++;
+                break;
+            }
+            ptr = ptr->next;
+        }
+
+        head = head->next;
+    }
+
+    // Return the count of duplicate nodes
+    return count;
+}
+
+/* Function to print linked list */
+void printlist(t_node * head)
+{
+    while (head != NULL) {
+        printf("%d->", head->data);
+        head = head->next;
+    }
+    printf("NULL");
+}
+
 
 int main(int argc, char **argv)
 {
@@ -29,8 +65,9 @@ int main(int argc, char **argv)
 			insertAtEnd(&head, ab);
 		i++;
 	}
-	ft_swap(&(head)->data ,&(head)->next->data);
-	printf("Linked list:\n");
-	printLinkedList(head);
+	printf("the number of duplicate: %d",countNode(head));
+	//ft_swap(&(head)->data ,&(head)->next->data);
+	// printf("Linked list:\n");
+	// printLinkedList(head);
 	return (0);
 }

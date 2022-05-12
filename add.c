@@ -6,7 +6,7 @@
 /*   By: aalhamel <aalhamel>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 21:21:02 by aalhamel          #+#    #+#             */
-/*   Updated: 2022/05/10 21:23:52 by aalhamel         ###   ########.fr       */
+/*   Updated: 2022/05/12 15:32:43 by aalhamel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,4 @@ void	insertAtEnd(t_node **head, int newData)
 		tempo = tempo -> next;
 	tempo -> next = alhai;
 }
+

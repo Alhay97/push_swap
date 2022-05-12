@@ -4,8 +4,8 @@
 
 struct node
 {
-	int value;  //value
-	struct node *next; //adress of the next node
+	int value;
+	struct node *next;
 };
 
 void printLinkedList(struct node *p)
@@ -48,7 +48,7 @@ int main()
 	struct node *three = NULL;
 
 
-	//this section is allocate the memory 
+	//this section is allocate the memory
 	one = malloc(sizeof(struct node));
 	two = malloc(sizeof(struct node));
 	three = malloc(sizeof(struct node));
@@ -84,7 +84,7 @@ int main()
 	printf("\n");
 
 
-	//adding an elment at the end 
+	//adding an elment at the end
 
 	struct node *alhai;
 	alhai = malloc(sizeof(struct node));
@@ -102,7 +102,7 @@ int main()
 	printf("\n");
 
 
-	//adding an elment at the middle of the 
+	//adding an elment at the middle of the
 
 	struct node *alhay;
 	alhay = malloc(sizeof(struct node));
@@ -128,9 +128,9 @@ int main()
 	printf("\n");
 
 
-	// delete an elment from the beginning 
+	// delete an elment from the beginning
 
-	head = head -> next; 
+	head = head -> next;
 
 	printLinkedList(head);
 
@@ -186,4 +186,4 @@ int main()
 
 //Output is  4 1 2 3
 
-//output is 
+//output is
