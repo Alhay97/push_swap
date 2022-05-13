@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aalhamel <aalhamel>                        +#+  +:+       +#+        */
+/*   By: aalhamel <aalhamel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 21:21:02 by aalhamel          #+#    #+#             */
-/*   Updated: 2022/05/12 15:32:43 by aalhamel         ###   ########.fr       */
+/*   Updated: 2022/05/12 17:18:36 by aalhamel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,15 @@ void	printLinkedList(t_node *p)
 }
 
 // this function is used to add a elment in the beginning of a linked list
-void	insertAtBeginning(t_node **header, int newValue)
+void	insertAtBeginning(t_node **header, t_node **a)
 {
 	t_node	*alhai;
 
 	alhai = (t_node *) malloc(sizeof(t_node));
-	alhai -> data = newValue;
+	alhai -> data = (*a)->data;
 	alhai -> next = *header;
 	*header = alhai;
+
 }
 
 //this function is to add an elment at the end

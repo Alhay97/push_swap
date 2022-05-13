@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aalhamel <aalhamel>                        +#+  +:+       +#+        */
+/*   By: aalhamel <aalhamel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 21:20:44 by aalhamel          #+#    #+#             */
-/*   Updated: 2022/05/12 15:32:42 by aalhamel         ###   ########.fr       */
+/*   Updated: 2022/05/12 17:09:32 by aalhamel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,12 @@ int	ft_atoi(const char *str)
 	check_sum (sum, sign, str);
 	return (sum * sign);
 }
+
+//counts how many repitation in linked list
+
+
+
+
 
 void	ft_swap(int *a, int *b)
 {

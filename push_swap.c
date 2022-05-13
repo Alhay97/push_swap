@@ -3,71 +3,104 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aalhamel <aalhamel>                        +#+  +:+       +#+        */
+/*   By: aalhamel <aalhamel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 21:25:58 by aalhamel          #+#    #+#             */
-/*   Updated: 2022/05/12 15:32:43 by aalhamel         ###   ########.fr       */
+/*   Updated: 2022/05/12 17:13:40 by aalhamel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int countNode(t_node *head)
-{
-    int count = 0;
-
-    while (head->next != NULL) {
-
-        // Starting from the next node
-        t_node  *ptr = head->next;
-        while (ptr != NULL) {
-
-            // If some duplicate node is found
-            if (head->data == ptr->data) {
-                count++;
-                break;
-            }
-            ptr = ptr->next;
-        }
-
-        head = head->next;
-    }
-
-    // Return the count of duplicate nodes
-    return count;
-}
 
 /* Function to print linked list */
-void printlist(t_node * head)
+void	printlist(t_node *head)
 {
-    while (head != NULL) {
-        printf("%d->", head->data);
-        head = head->next;
-    }
-    printf("NULL");
+	while (head != NULL)
+	{
+		printf("%d->", head->data);
+		head = head->next;
+	}
+	printf("NULL");
 }
 
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t	i;
 
-int main(int argc, char **argv)
+	if (!s1 || !s2)
+		return (0);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+
+void	ft_check_dups(int ac, char **av)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i < ac)
+	{
+		ft_atoi (av[i]);
+		j = i + 1;
+		while (j < ac)
+		{
+			if (ft_strcmp (av[i], av[j]) == 0)
+			{
+				write (2, "ERROR\n", 6);
+				exit (1);
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+void	check_negative(int ac, char **av)
+// {
+// 	int i;
+// 	int j;
+
+// 	i = 1;
+// 	while(i < ac)
+// 	{
+// 		j = 0;
+// 		while (av[i][j] != '\0')
+// 		{
+// 			if (av[i][j] == '-' && av[i][j + 1] != '\0' && (av[i][j + 1] < '0' || av[i][j + 1] > '9'))
+// 				exit(1);
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// }
+
+
+int	main(int argc, char **argv)
 {
 	int			i;
 	int			ab;
-	t_node		*head;
+	t_node		*head1;
+	t_node		*head2;
 
 	i = 1;
-	head = NULL;
+	head1 = NULL;
+	head2 = NULL;
+	check_negative(argc, argv);
+	ft_check_dups(argc, argv);
 	while (i < argc)
 	{
 		ab = ft_atoi(argv[i]);
 		if (argc == 1)
-			insertAtBeginning(&head, ab);
+			insertAtBeginning(&head1, ab);
 		else
-			insertAtEnd(&head, ab);
+			insertAtEnd(&head1, ab);
 		i++;
 	}
-	printf("the number of duplicate: %d",countNode(head));
-	//ft_swap(&(head)->data ,&(head)->next->data);
-	// printf("Linked list:\n");
-	// printLinkedList(head);
+
+	printLinkedList(head1);
 	return (0);
 }
