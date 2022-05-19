@@ -6,7 +6,7 @@
 /*   By: aalhamel <aalhamel>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 21:14:50 by aalhamel          #+#    #+#             */
-/*   Updated: 2022/05/10 22:31:12 by aalhamel         ###   ########.fr       */
+/*   Updated: 2022/05/18 19:27:38 by aalhamel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_atoi(const char *str);
 
 void	printLinkedList(t_node *p);
 
-void	insertAtBeginning(t_node **header, int newValue);
+void	insertAtBeginning(t_node **header, int new);
 
 void	insertAtEnd(t_node **head, int newData);
 

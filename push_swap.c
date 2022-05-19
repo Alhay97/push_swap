@@ -59,7 +59,7 @@ void	ft_check_dups(int ac, char **av)
 	}
 }
 
-void	check_negative(int ac, char **av)
+// void	check_negative(int ac, char **av)
 // {
 // 	int i;
 // 	int j;
