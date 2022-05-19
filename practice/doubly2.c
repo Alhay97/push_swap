@@ -72,13 +72,11 @@ void	addingfirst(t_node **header, int ab)
 	t_node	*alhai;
 
 	alhai = (t_node *)malloc(sizeof(t_node));
-
 	alhai -> data = ab;
-
 	alhai -> next = (*header);
 	alhai -> pre = NULL;
 	if ((*header) != NULL)
-		(*header) -> pre = NULL;
+		(*header)-> pre = NULL;
 	(*header) = alhai;
 }
 
@@ -104,6 +102,80 @@ void	add_end(t_node **hello, int bc)
 }
 
 
+
+// check this code for the numer of nodes in a linked list
+// /* Function to get the nth node from the last of a linked list*/
+// void printNthFromLast(Node* head, int n)
+// {
+//     int len = 0, i;
+//     Node* temp = head;
+
+//     // count the number of nodes in Linked List
+//     while (temp != NULL) {
+//         temp = temp->next;
+//         len++;
+//     }
+
+//     // check if value of n is not
+//     // more than length of the linked list
+//     if (len < n)
+//         return;
+//     temp = head;
+
+//     // get the (len-n+1)th node from the beginning
+//     for (i = 1; i < len - n + 1; i++)
+//         temp = temp->next;
+//     printf("%d",temp->data);
+//     return;
+// }
+
+
+// find a way to make simpler
+
+// void push(t_node **head_ref, t_node *new_node)
+// {
+//     // since we are adding at the beginning,
+//     // prev is always NULL
+//     new_node->pre = NULL;
+
+//     // link the old list off the new node
+//     new_node->next = (*head_ref);
+
+//     // change prev of head node to new node
+//     if ((*head_ref) != NULL)
+//         (*head_ref)->pre = new_node;
+
+//     // move the head to point to the new node
+//     (*head_ref) = new_node;
+// }
+
+// void reverseList(t_node **head_ref)
+// {
+//     // if list is empty or it contains
+//     // a single node only
+//     if (!(*head_ref) || !((*head_ref)->next))
+//         return;
+
+//     t_node *new_head = NULL;
+//     t_node  *curr = *head_ref, *next;
+
+//     while (curr != NULL) {
+
+//         // get pointer to next node
+//         next = curr->next;
+
+//         // push 'curr' node at the beginning of the
+//         // list with starting with 'new_head'
+//         push(&new_head, curr);
+
+//         // update 'curr'
+//         curr = next;
+//     }
+
+//     // update 'head_ref'
+//     *head_ref = new_head;
+// }
+
 int main(int argc, char **argv)
 {
 	int			i;
@@ -121,57 +193,9 @@ int main(int argc, char **argv)
 			add_end(&head1, ab);
 		i++;
 	}
-
+	printLinkedList(head1);
+	printf("this is after the reverse function\n");
+	reverseList(&head1);
 	printLinkedList(head1);
 	return (0);
 }
-
-
-
-
-
-
-// int main()
-// {
-// 	//this is were create the nodes
-// 	struct node *head;
-// 	struct node *one = NULL;
-// 	struct node *two = NULL;
-// 	struct node *three = NULL;
-
-// // to allocate the memory
-// 	one = (t_node *)malloc(sizeof(t_node));
-// 	two = (t_node *)malloc(sizeof(t_node));
-// 	three = (t_node *)malloc(sizeof(t_node));
-
-// // to assign data values
-// 	one -> data = 4;
-// 	two -> data = 5;
-// 	three -> data = 6;
-
-// // connectng the nodes
-// 	one -> next = two;
-// 	one -> pre = NULL;
-
-// 	two -> next = three;
-// 	two -> pre = one;
-
-// 	three -> next = NULL;
-// 	three -> pre = two;
-
-// // save the address of the first node in head
-
-// 	head = one;
-
-// 	addingfirs(&head, 45);
-// 	addingfirs(&head, 56);
-
-//   addingEnd(&head, 100);
-//    addingEnd(&head, 121);
-
-
-// printLinkedList(head);
-
-// return 0;
-
-// }
