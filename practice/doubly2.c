@@ -69,7 +69,7 @@ void	printLinkedList(t_node *p)
 
 void	addingfirst(t_node **header, int ab)
 {
-	t_node *alhai;
+	t_node	*alhai;
 
 	alhai = (t_node *)malloc(sizeof(t_node));
 
@@ -82,30 +82,26 @@ void	addingfirst(t_node **header, int ab)
 	(*header) = alhai;
 }
 
-void addingEnd(t_node **head1,  int bc)
+void	add_end(t_node **hello, int bc)
 {
-//   t_node *alhay;
-//   t_node *temp;
+	t_node	*alhai;
+	t_node	*tempo;
 
-//   alhay = (t_node *)malloc(sizeof(t_node));
-//   alhay -> data = bc;
-//   alhay -> next = NULL;
-//   temp = *head1;
-
-//   if (head1 == NULL)
-//   {
-//     alhay -> pre = NULL;
-//     *head1 = alhay;
-//     return;
-//   }
-//   while (temp -> next != NULL)
-//     temp = temp -> next;
-//   temp -> next = alhay;
-//   alhay -> pre = temp;
-// }
-
-
-
+	alhai = (t_node *)malloc(sizeof(t_node));
+	alhai -> data = bc;
+	alhai -> next = NULL;
+	tempo = *hello;
+	if (*hello == NULL)
+	{
+		alhai -> pre = NULL;
+		*hello = alhai;
+		return ;
+	}
+	while (tempo -> next != NULL)
+		tempo = tempo -> next;
+	tempo ->next = alhai;
+	alhai ->pre = tempo;
+}
 
 
 int main(int argc, char **argv)
@@ -122,7 +118,7 @@ int main(int argc, char **argv)
 		if (argc == 1)
 			addingfirst(&head1, ab);
 		else
-			addingEnd(&head1, ab);
+			add_end(&head1, ab);
 		i++;
 	}
 
