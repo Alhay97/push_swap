@@ -13,3 +13,9 @@
 7. https://www.geeksforgeeks.org/doubly-linked-list/?ref=lbp
 
 8. https://www.programiz.com/dsa/doubly-linked-list
+
+For all the needed  important information 
+
+1. https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e
+
+2. https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
