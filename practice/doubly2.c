@@ -33,10 +33,12 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	while ((*str == 32) || (*str >= 9 && *str <= 13))
 		str++;
-	if (*str == '-')
-		sign *= -1;
 	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign *= -1;
 		str++;
+	}
 	while (*str >= '0' && *str <= '9')
 	{
 		sum = sum * 10 + *str - '0';
@@ -101,80 +103,41 @@ void	add_end(t_node **hello, int bc)
 	alhai ->pre = tempo;
 }
 
+void	ft_putchar_fd(int c, int fd)
+{
+	write(fd, &c, 1);
+}
 
+void ft_putstr_fd(char *str, int fd)
+{
+	int i;
 
-// check this code for the numer of nodes in a linked list
-// /* Function to get the nth node from the last of a linked list*/
-// void printNthFromLast(Node* head, int n)
-// {
-//     int len = 0, i;
-//     Node* temp = head;
+	i = 0;
+	while (str[i])
+		ft_putchar_fd(str[i++], fd);
+}
 
-//     // count the number of nodes in Linked List
-//     while (temp != NULL) {
-//         temp = temp->next;
-//         len++;
-//     }
+void	ft_putendl_fd(char *str, int fd)
+{
+	ft_putstr_fd(str, fd);
+	ft_putchar_fd('\n', fd);
+}
 
-//     // check if value of n is not
-//     // more than length of the linked list
-//     if (len < n)
-//         return;
-//     temp = head;
+void	dublicate_check(t_node	*list, int ab)
+{
+	t_node	*temp;
 
-//     // get the (len-n+1)th node from the beginning
-//     for (i = 1; i < len - n + 1; i++)
-//         temp = temp->next;
-//     printf("%d",temp->data);
-//     return;
-// }
-
-
-// find a way to make simpler
-
-// void push(t_node **head_ref, t_node *new_node)
-// {
-//     // since we are adding at the beginning,
-//     // prev is always NULL
-//     new_node->pre = NULL;
-
-//     // link the old list off the new node
-//     new_node->next = (*head_ref);
-
-//     // change prev of head node to new node
-//     if ((*head_ref) != NULL)
-//         (*head_ref)->pre = new_node;
-
-//     // move the head to point to the new node
-//     (*head_ref) = new_node;
-// }
-
-// void reverseList(t_node **head_ref)
-// {
-//     // if list is empty or it contains
-//     // a single node only
-//     if (!(*head_ref) || !((*head_ref)->next))
-//         return;
-
-//     t_node *new_head = NULL;
-//     t_node  *curr = *head_ref, *next;
-
-//     while (curr != NULL) {
-
-//         // get pointer to next node
-//         next = curr->next;
-
-//         // push 'curr' node at the beginning of the
-//         // list with starting with 'new_head'
-//         push(&new_head, curr);
-
-//         // update 'curr'
-//         curr = next;
-//     }
-
-//     // update 'head_ref'
-//     *head_ref = new_head;
-// }
+	temp = list;
+	while(temp != NULL)
+	{
+		if (temp->data == ab)
+		{
+			ft_putendl_fd("Error", 2);
+			exit(1);
+		}
+		temp = temp->next;
+	}
+}
 
 int main(int argc, char **argv)
 {
@@ -187,6 +150,7 @@ int main(int argc, char **argv)
 	while (i < argc)
 	{
 		ab = ft_atoi(argv[i]);
+		dublicate_check(head1, ab);
 		if (argc == 1)
 			addingfirst(&head1, ab);
 		else
@@ -195,7 +159,7 @@ int main(int argc, char **argv)
 	}
 	printLinkedList(head1);
 	printf("this is after the reverse function\n");
-	reverseList(&head1);
+	// reverseList(&head1);
 	printLinkedList(head1);
 	return (0);
 }

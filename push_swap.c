@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aalhamel <aalhamel@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aalhamel <aalhamel>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 21:25:58 by aalhamel          #+#    #+#             */
-/*   Updated: 2022/05/12 17:13:40 by aalhamel         ###   ########.fr       */
+/*   Updated: 2022/06/01 17:26:11 by aalhamel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+
+// int  duplication()
 
 
 /* Function to print linked list */
@@ -89,7 +92,7 @@ int	main(int argc, char **argv)
 	i = 1;
 	head1 = NULL;
 	head2 = NULL;
-	check_negative(argc, argv);
+	// check_negative(argc, argv);
 	ft_check_dups(argc, argv);
 	while (i < argc)
 	{
