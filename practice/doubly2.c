@@ -139,6 +139,32 @@ void	dublicate_check(t_node	*list, int ab)
 	}
 }
 
+void ft_swap(int *a, int *b)
+{
+	int temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+void ft_push(t_node **a, t_node **b)
+{
+	t_node *temp = *a;
+	(*a) = (*a)->next;
+	(*b)->pre = temp;
+	temp = (*b);
+	(*b) = temp;
+}
+
+
+void ft_reverse(t_node **a)
+{
+	t_node *temp = *a;
+	add_end(a, (*a)->data);
+	temp = (*a)->next;
+	a = &temp;
+}
 int main(int argc, char **argv)
 {
 	int			i;
@@ -159,7 +185,11 @@ int main(int argc, char **argv)
 	}
 	printLinkedList(head1);
 	printf("this is after the reverse function\n");
-	// reverseList(&head1);
+	ft_reverse(&head1);
+	// ft_swap(&head1->data, &head1->next->data);
 	printLinkedList(head1);
 	return (0);
 }
+
+
+
