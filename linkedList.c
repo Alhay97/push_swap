@@ -1,15 +1,4 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-
-typedef struct node
-{
-	int data;
-	struct node *next;
-	struct node *pre;
-}t_node;
-
+#include "push_swap.h"
 
 void	printLinkedList(t_node *p)
 {
@@ -54,3 +43,19 @@ void	add_end(t_node **hello, int bc)
 	alhai ->pre = tempo;
 }
 
+
+int counter(t_node **ab)
+{
+    t_node *temp = *ab;
+
+    int count=0;
+    while(temp != NULL){
+
+       temp = temp->next;
+
+        /* Increment count variable. */
+        count++;
+
+    }
+    return (count);
+}

@@ -1,11 +1,23 @@
-void rev_rot(t_node **ab)
-{
-	t_node *tempor = *ab;
-	t_node *tempp = *ab;
+#include "push_swap.h"
 
-	while (tempor -> next != NULL)
-		tempor = tempor->next;
-	tempor->next =  *ab;
-	*ab = tempp->next;
-	tempp->next = NULL;
+void rev_rot(t_node **stack)
+{
+	t_node	*new_top;
+	t_node	*old_top;
+
+	old_top = *stack;
+	while (old_top->next != NULL)
+	{
+		new_top = old_top;
+		old_top = old_top->next;
+	}
+	new_top->next = NULL;
+	old_top->next = *stack;
+	*stack = old_top;
+}
+
+void rrr(t_node *head, t_node *head2)
+{
+	rev_rot(&head);
+	rev_rot(&head2);
 }

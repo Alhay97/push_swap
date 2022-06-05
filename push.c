@@ -1,3 +1,5 @@
+#include "push_swap.h"
+
 void ft_push(t_node **a, t_node **b)
 {
 	t_node *temp = *a;
