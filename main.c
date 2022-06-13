@@ -19,25 +19,46 @@ int main(int argc, char **argv)
 		i++;
 	}
 	printf("numbers:\n");
-	printLinkedList(head1);
+	// printLinkedList(head1);
 
-	printf("swap:\n");
-	sa_sb(head1);
-	printLinkedList(head1);
-
-	// ft_push(t_node **a, t_node **b);
+	// // int a = head1->data;
+	// // int b = head1->next->data;
+	// // int c = head1->next->next->data;
 
 
-	printf("rotate: \n");
-	ft_rotate(&head1);
-	printLinkedList(head1);
+	// if(argc == 4)
+	// {
+	// 	if(head1->data > head1->next->data && head1->data < head1->next->next->data && head1->next->data < head1->next->next->data)
+	// 		sa_sb(head1);
+	// 	else if(head1->data > head1->next->data && head1->data > head1->next->next->data && head1->next->data > head1->next->next->data)
+	// 	{
+	// 		sa_sb(head1);
+	// 		rev_rot(&head1);
+	// 	}
+	// 	else if(head1->data > head1->next->data && head1->data > head1->next->next->data && head1->next->data < head1->next->next->data)
+	// 		ft_rotate(&head1);
+	// 	else if(head1->data < head1->next->data && head1->data < head1->next->next->data && head1->next->data > head1->next->next->data)
+	// 	{
+	// 		sa_sb(head1);
+	// 		ft_rotate(&head1);
+	// 	}
+	// 	else if(head1->data < head1->next->data && head1->data > head1->next->next->data && head1->next->data > head1->next->next->data)
+	// 		rev_rot(&head1);
+	// }
+	// else
+	// {
+	// 	printf("error amount of numbers");
+	// }
 
-	printf("reverse rotate:\n");
-	rev_rot(&head1);
-	printLinkedList(head1);
+	int abb =max_num(&head1);
+
+	printf("%d is the biggest number in linked list",abb);
+
+	// printf("reverse rotate:\n");
+	// printLinkedList(head1);
 
 
-	printf("\n%d",counter(&head1));
+	// printf("\n%d",counter(&head1));
 
 	return (0);
 }

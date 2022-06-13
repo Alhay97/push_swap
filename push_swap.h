@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 typedef struct s_node
 {
@@ -20,6 +21,7 @@ void	addingfirst(t_node **header, int ab);
 
 void	add_end(t_node **hello, int bc);
 
+int 	max_num(t_node *ap);
 
 void	check_sum(unsigned long sum, int sign, const char *str);
 
