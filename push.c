@@ -19,9 +19,9 @@ t_node *top_of_stack(t_node **ab)
 void ft_push(t_node **a, t_node **b)
 {
 	t_node *temp;
-	
-	// if (!*a)
-	// 	return ;
+
+	if (!*a)
+		return ;
 	temp  = top_of_stack(a);
 	*a = removeTop(*a);
 	temp ->next = *b;

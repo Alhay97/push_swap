@@ -96,5 +96,6 @@ int main(int argc, char **argv)
 		i++;
 	}
 	printf("numbers:\n");
-	printf("%d", head1->data);
+	head1 = removeTop(head1);
+	printLinkedList(head1);
 }
