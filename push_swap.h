@@ -23,11 +23,13 @@ void	add_end(t_node **hello, int bc);
 
 int 	max_num(t_node *ab);
 
+int 	min_num(t_node *ab);
+
 void	check_sum(unsigned long sum, int sign, const char *str);
 
 int		ft_atoi(const char *str);
 
-t_node *removeTop(t_node *head);
+t_node 	*removeTop(t_node *head);
 
 void	ft_putchar_fd(int c, int fd);
 
@@ -37,7 +39,9 @@ void	ft_putendl_fd(char *str, int fd);
 
 void	dublicate_check(t_node	*list, int ab);
 
-//void 	ft_push(t_node **a, t_node **b);
+void	push_a (t_node **a, t_node **b);
+
+void 	push_b (t_node **a, t_node **b);
 
 void 	rev_rot(t_node **stack);
 

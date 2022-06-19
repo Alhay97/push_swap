@@ -16,3 +16,16 @@ int max_num(t_node *ap)
 	}
 }
 
+int min_num(t_node *ab)
+{
+	int min;
+
+	min = INT_MAX;
+	while(ab != NULL)
+	{
+		if (min > ab->data)
+			min = ab->next;
+		ab = ab->next;
+	}
+	return min;
+}
