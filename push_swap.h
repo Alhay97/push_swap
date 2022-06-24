@@ -29,7 +29,7 @@ void	check_sum(unsigned long sum, int sign, const char *str);
 
 int		ft_atoi(const char *str);
 
-t_node 	*removeTop(t_node *head);
+t_node* removeFirstNode(t_node* head);
 
 void	ft_putchar_fd(int c, int fd);
 
@@ -51,7 +51,9 @@ void 	sa_sb(t_node *head);
 
 void 	ft_swap(int *a, int *b);
 
-void	conditionss(t_node *ab);
+static void	conditionss(t_node *ab);
+
+void	sort_three(t_node **a);
 
 int 	counter(t_node **ab);
 

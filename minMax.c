@@ -24,7 +24,7 @@ int min_num(t_node *ab)
 	while(ab != NULL)
 	{
 		if (min > ab->data)
-			min = ab->next;
+			min = ab->data;
 		ab = ab->next;
 	}
 	return min;
