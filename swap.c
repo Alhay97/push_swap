@@ -9,8 +9,11 @@ void ft_swap(int *a, int *b)
 	*b = temp;
 }
 
-void sa_sb(t_node *head)
+void sa_sb(t_node **headd)
 {
+	t_node *head;
+
+	head = *headd;
 	ft_swap(&head->data, &head->next->data);
 }
 

@@ -47,11 +47,11 @@ void 	rev_rot(t_node **stack);
 
 void 	ft_rotate(t_node **a);
 
-void 	sa_sb(t_node *head);
+void 	sa_sb(t_node **head);
 
 void 	ft_swap(int *a, int *b);
 
-static void	conditionss(t_node *ab);
+static void	conditionss(t_node **ab);
 
 void	sort_three(t_node **a);
 
