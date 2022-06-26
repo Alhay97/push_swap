@@ -22,19 +22,6 @@ void	addingfirst(t_node **header, int ab)
 	(*header) = alhai;
 }
 
-t_node* removeFirstNode(t_node* head)
-{
-    if (head == NULL)
-        return NULL;
- 
-    // Move the head pointer to the next node
-    t_node* temp = head;
-    head = head->next;
- 
-    return head;
-}
-
-
 void	add_end(t_node **hello, int bc)
 {
 	t_node	*alhai;
