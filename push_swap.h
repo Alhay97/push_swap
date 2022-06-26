@@ -13,7 +13,7 @@ typedef struct s_node
 	struct s_node *next;
 	struct s_node *pre;
 }t_node;
-
+// void 	pop_stack(t_node *head);
 
 void	printLinkedList(t_node *p);
 

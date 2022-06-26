@@ -1,5 +1,20 @@
 #include "push_swap.h"
 
+
+// void pop_stack(t_node *head)
+// {
+// 	if (head == NULL)
+//         return NULL;
+
+//     t_node* temp = head;
+//     head = head->next;
+
+//     free (temp);
+
+//     return head;
+
+// }
+
 void push_a(t_node **a, t_node **b)
 {
 	t_node *temp;

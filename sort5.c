@@ -2,11 +2,11 @@
 
 
 
-
 int main(int argc, char **argv)
 {
 	int			i;
 	int			ac;
+	int			bc;
 	t_node		*ab;
 	t_node		*head2;
 
@@ -23,14 +23,11 @@ int main(int argc, char **argv)
 			add_end(&ab, ac);
 		i++;
 	}
-	// addingfirst(&head2,head1->data);
-	// head1 = removeFirstNode(head1);
-	// printLinkedList(head1);
-	printf("the list after swapping: \n");
-	sort_three(&ab);
+	printf("the list before the pop function\n");
 	printLinkedList(ab);
-
-
-	//printf("%d", head1->data);
+	push_a(&ab,&head2);
+	printf("the list after the pop function\n");
+	// pop_stack(ab);
+	printLinkedList(head2);
 	return 0;
 }

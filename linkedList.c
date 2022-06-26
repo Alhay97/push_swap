@@ -2,6 +2,8 @@
 
 void	printLinkedList(t_node *p)
 {
+	if (!p)
+		return ;
 	while (p != NULL)
 	{
 		printf("%d \n", p->data);
@@ -26,11 +28,11 @@ t_node* removeFirstNode(t_node* head)
 {
     if (head == NULL)
         return NULL;
- 
+
     // Move the head pointer to the next node
     t_node* temp = head;
     head = head->next;
- 
+
     return head;
 }
 
