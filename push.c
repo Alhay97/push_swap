@@ -1,38 +1,48 @@
 #include "push_swap.h"
 
+void ft_pop(t_node **ab)
+{
+	int temp;
+
+}
+
 void	push_a(t_node **a, t_node **b)
 {
 	t_node	*temp;
-	int		ab;
 
-	if (!*a)
-		return ;
-	ab = counter(b);
-	if (ab == 0)
+	if (*b != NULL)
 	{
-		addingfirst(b, (*a)->data);
-		removeFirstNode(a);
-	}
-	else
-	{
-		temp = *a;
-		*a = (*a)->next;
-		temp->next = *b;
-		(*b)->pre = temp;
-		*b = temp;
+		temp = *b;
+		*b = (*b)->next;
+		if (*a == NULL)
+			temp->next = NULL;
+		else
+		{
+			temp->next = *a;
+			(*a)->pre = temp;
+		}
+		*a = temp;
 	}
 }
 
 void push_b (t_node **a, t_node **b)
 {
-	t_node *temp;
+	t_node	*temp;
 
-	if (!*b)
-		return ;
-    temp = *b;
-    *b = (*b)->next;
-    temp->next = *a;
-	(*a)->pre = temp;
-	*a = temp;
+	if (*a != NULL)
+	{
+		temp = *a;
+		*a = (*a)->next;
+		if (*b == NULL)
+			temp->next = NULL;
+		else
+		{
+			temp->next = *b;
+			(*b)->pre = temp;
+		}
+		*b = temp;
+	}
+	
 }
+
 

@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 	}
 	bc = counter(&ab);
 	// printf("%d", bc);
-	push_a(&ab,&head2);
+	push_b(&ab,&head2);
 	printf("stack A after swapping: \n");
 	printLinkedList(ab);
 	printf("stack B after swapping: \n");
