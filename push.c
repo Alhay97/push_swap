@@ -1,11 +1,5 @@
 #include "push_swap.h"
 
-void ft_pop(t_node **ab)
-{
-	int temp;
-
-}
-
 void	push_a(t_node **a, t_node **b)
 {
 	t_node	*temp;
@@ -33,6 +27,7 @@ void push_b (t_node **a, t_node **b)
 	{
 		temp = *a;
 		*a = (*a)->next;
+		(*a)->pre = NULL;
 		if (*b == NULL)
 			temp->next = NULL;
 		else
@@ -42,7 +37,7 @@ void push_b (t_node **a, t_node **b)
 		}
 		*b = temp;
 	}
-	
+
 }
 
 

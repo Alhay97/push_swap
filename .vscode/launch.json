@@ -8,8 +8,10 @@
 			"name": "(lldb) Launch",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/a.out",
+			"program": "${fileDirname}/${fileBasenameNoExtension}",
 			"args": [
+				"5",
+				"4",
 				"3",
 				"2",
 				"1"

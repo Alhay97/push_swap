@@ -27,5 +27,6 @@ int min_num(t_node *ab)
 			min = ab->data;
 		ab = ab->next;
 	}
+	printf("min val = %d\n", min);
 	return min;
 }

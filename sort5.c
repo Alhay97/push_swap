@@ -23,12 +23,25 @@ int main(int argc, char **argv)
 			add_end(&ab, ac);
 		i++;
 	}
-	// push_b()
+	int j = 0;
 	bc  = counter(&ab);
-	if (bc > 3 && bc <= 5)
-		push_b(&ab,&head2);
-	if (bc <= 3)
-		sort_three(&ab);
+	while (j < 2)
+	{
+		if (min_num(ab) == ab->data)
+		{
+			printf("top val - %d\n", ab->data);
+			push_b(&ab,&head2);
+			j++;
+		}
+		else
+			ft_rotate(&ab);
+	}
+	printf("stack A\n");
 	printLinkedList(ab);
+	printf("stack B\n");
+	printLinkedList(head2);
+	printf("here\n");
+	sort_three(&ab);
+
 	return (0);
 }
