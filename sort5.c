@@ -23,12 +23,12 @@ int main(int argc, char **argv)
 			add_end(&ab, ac);
 		i++;
 	}
-	bc = counter(&ab);
-	// printf("%d", bc);
-	push_b(&ab,&head2);
-	printf("stack A after swapping: \n");
+	// push_b()
+	bc  = counter(&ab);
+	if (bc > 3 && bc <= 5)
+		push_b(&ab,&head2);
+	if (bc <= 3)
+		sort_three(&ab);
 	printLinkedList(ab);
-	printf("stack B after swapping: \n");
-	printLinkedList(head2);
 	return (0);
 }
