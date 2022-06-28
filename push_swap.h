@@ -53,6 +53,8 @@ static void	conditionss(t_node **ab);
 
 void	sort_three(t_node **a);
 
+void	sort_five_four(t_node **ab, t_node **bc);
+
 int 	counter(t_node **ab);
 
 void	ft_lstclear(t_node **lst, void (*del)(void *));

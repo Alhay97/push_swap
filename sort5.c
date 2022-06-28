@@ -1,47 +1,16 @@
 #include "push_swap.h"
 
-
-int main(int argc, char **argv)
+void	sort_five_four(t_node **ab, t_node **bc)
 {
-	int			i;
-	int			ac;
-	int 		bc;
-	t_node		*ab;
-	t_node		*head2;
-
-	i = 1;
-	ab = NULL;
-	head2 = NULL;
-
-	while (i < argc)
+	while (counter(ab) > 3)
 	{
-		ac = ft_atoi(argv[i]);
-		dublicate_check(ab, ac);
-		if (argc == 1)
-			addingfirst(&ab, ac);
+		if (min_num(*ab) == (*ab)->data)
+			push_b(ab,bc);
 		else
-			add_end(&ab, ac);
-		i++;
+			ft_rotate(ab);
 	}
-	int j = 0;
-	bc  = counter(&ab);
-	while (j < 2)
-	{
-		if (min_num(ab) == ab->data)
-		{
-			printf("top val - %d\n", ab->data);
-			push_b(&ab,&head2);
-			j++;
-		}
-		else
-			ft_rotate(&ab);
-	}
-	printf("stack A\n");
-	printLinkedList(ab);
-	printf("stack B\n");
-	printLinkedList(head2);
-	printf("here\n");
-	sort_three(&ab);
+	sort_three(ab);
+	while (counter(bc) > 0)
+		push_a(ab,bc);
 
-	return (0);
 }
