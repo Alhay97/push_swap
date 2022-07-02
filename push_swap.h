@@ -10,10 +10,12 @@
 typedef struct s_node
 {
 	int data;
+	int indexs;
 	struct s_node *next;
 	struct s_node *pre;
 }t_node;
 
+int max_num_2(t_node *a);
 
 void	printLinkedList(t_node *p);
 
