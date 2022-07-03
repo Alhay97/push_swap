@@ -12,18 +12,18 @@ static void	conditionss(t_node **abd)
 	else if(ab->data > ab->next->data && ab->data > ab->next->next->data && ab->next->data > ab->next->next->data)
 	{
 		sa_sb(&ab);
-		rev_rot(&ab);
+		rev_rotate(&ab,'a');
 	}
 	else if(ab->data > ab->next->data && ab->data > ab->next->next->data && ab->next->data < ab->next->next->data)
-		ft_rotate(&ab);
+		rotate(&ab,'a');
 	else if(ab->data < ab->next->data && ab->data < ab->next->next->data && ab->next->data > ab->next->next->data)
 	{
 		sa_sb(&ab);
-		ft_rotate(&ab);
+		rotate(&ab,'a');
 	}
 	else if(ab->data < ab->next->data && ab->data > ab->next->next->data && ab->next->data > ab->next->next->data)
 
-		rev_rot(&ab);
+		rev_rotate(&ab,'a');
 
 
 }

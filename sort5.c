@@ -7,7 +7,7 @@ void	sort_five_four(t_node **ab, t_node **bc)
 		if (min_num(*ab) == (*ab)->data)
 			push_b(ab,bc);
 		else
-			ft_rotate(ab);
+			rotate(ab,'a');
 	}
 	sort_three(ab);
 	while (counter(bc) > 0)

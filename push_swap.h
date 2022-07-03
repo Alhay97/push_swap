@@ -43,9 +43,13 @@ void	push_a (t_node **a, t_node **b);
 
 void 	push_b (t_node **a, t_node **b);
 
-void 	rev_rot(t_node **stack);
+void	rotate(t_node **a_list, char ab);
 
-void 	ft_rotate(t_node **a);
+// void	rev_rotate(t_node **a_list, t_node **b_list);
+
+void	rev_rotate(t_node **a_list, char ab);
+
+void	rrr(t_node **a_list, t_node **b_list);
 
 void 	sa_sb(t_node **head);
 

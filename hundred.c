@@ -24,6 +24,70 @@ void ft_bubble_sort(int *array, int size)
 	}
 }
 
+int	loc(t_node *a_list, int max, int size)
+{
+	int	loc;
+	int	*tab;
+	int	i;
+
+	i = 0;
+	loc = size;
+	tab = malloc(sizeof(int) * (size + 1));
+	while (a_list)
+	{
+		tab[i] = (a_list)->indexs;
+		a_list = (a_list)->next;
+		i++;
+	}
+	while (tab[size] != max)
+		size--;
+	loc = loc - size;
+	size = 0;
+	while (tab[size] != max)
+		size++;
+	free(tab);
+	if (loc < size)
+		return (1);
+	return (0);
+}
+
+void b_A(t_node **a, t_node **b)
+{
+	while (*b)
+	{
+		if (!*b)
+			break ;
+		if ((*b)->indexs != max_num(*b) && !loc(*b, max_num(*b), counter(b)))
+			rotate(b,'b');
+		else if ((*b)->indexs != max_num(*b) && loc(*b, max_num(*b), counter(b)))
+			rev_rotate(b,'b');
+		else if ((*b)->indexs == max_num(*b))
+			push_a(a, b);
+	}}
+
+void sort_hundred(t_node **ab, t_node **bc)
+{
+	int ind = 0;
+	while (*ab)
+	{
+		if (ind > 1 && (*ab)->indexs <= ind)
+		{
+			push_b(ab,bc);
+			rotate(bc,'b');
+			ind++;
+		}
+		else if((*ab)->indexs <= (ind + 15))
+		{
+			push_b(ab, bc);
+			ind++;
+		}
+		else if ((*ab)->indexs >= ind)
+			rotate(ab,'a');
+		}
+	b_A(ab, bc);
+}
+
+
 int	main(int argc, char **argv)
 {
 	int			i;
@@ -44,13 +108,10 @@ int	main(int argc, char **argv)
 			add_end(&head1, ab);
 		i++;
 	}
-	// printf("1");
 	int k;
 	t_node *temp;
 	temp = head1;
-	// printf("2");
 	int *array = (int*)malloc(counter(&head1) * sizeof(int));
-	// printf("3");
 	k = 0;
 	while (temp != NULL)
 	{
@@ -58,19 +119,15 @@ int	main(int argc, char **argv)
 		k++;
 		temp = temp->next;
 	}
-	// printf("4");
 	ft_bubble_sort(array,counter(&head1));
-	// printf("5");
 	k = 0;
 	t_node *temp2 = head1;
 	t_node *temp3 = head1;
-	printf("here is the max index: %d\n", max_num_2(temp2));
 	while (temp2 != NULL)
 	{
 		if (temp2->data == array[k])
 		{
 			temp2->indexs = k;
-			printf("here is the index: %d here is the data %d and here is the array %d k %d\n", temp2->indexs, temp2->data,array[k],k);
 			temp2 = temp3;
 			k++;
 		}
@@ -78,19 +135,8 @@ int	main(int argc, char **argv)
 			temp2 = temp2->next;
 
 	}
+	sort_hundred(&head1, &head2);
 
-
-	// k = -1;
-	// while (++k < counter(&head1))
-	// 	printf("%d\n", array[k]);
-
-	// int j;
-	// j = 0;
-	// while (j < 9)
-	// {
-	// 	push_b(&head1,&head2);
-	// 	j++;
-	// }
-	// printLinkedList(head2);
+	printLinkedList(head1);
 	return (0);
 }

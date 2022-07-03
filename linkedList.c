@@ -4,7 +4,7 @@ void	printLinkedList(t_node *p)
 {
 	while (p != NULL)
 	{
-		printf("%d \n", p->data);
+		printf("%d, and the index->%d \n", p->data, p->indexs);
 		p = p->next;
 	}
 }

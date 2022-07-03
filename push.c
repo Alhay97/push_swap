@@ -27,7 +27,7 @@ void push_b (t_node **a, t_node **b)
 	{
 		temp = *a;
 		*a = (*a)->next;
-		(*a)->pre = NULL;
+		// (*a)->pre = NULL;
 		if (*b == NULL)
 			temp->next = NULL;
 		else

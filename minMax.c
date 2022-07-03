@@ -13,7 +13,7 @@ int max_num(t_node *ap)
 		if (x > ap->data)
 			return x;
 		else
-			return ap->data;
+			return ap->indexs;
 	}
 }
 
@@ -38,7 +38,9 @@ int max_num_2(t_node *a)
 		return (1);
 	else if (i[1] < i[0]/2)
 		return (0);
+	return (0);
 }
+
 
 int min_num(t_node *ab)
 {
